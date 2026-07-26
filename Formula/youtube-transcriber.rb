@@ -3,10 +3,9 @@ class YoutubeTranscriber < Formula
 
   desc "Downloads YouTube audio and creates local text transcripts"
   homepage "https://github.com/jn-root/youtube-transcriber"
-  url "https://github.com/jn-root/youtube-transcriber/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "7950712439432449fc31d122206eb026506e17af12e44846796c10848d2090fd"
+  url "https://github.com/jn-root/youtube-transcriber/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "412e3d80803fb6598c723c51e6701d74c074af1d267b56e2fefe98a5aaa71205"
   license "MIT"
-  revision 1
 
   depends_on "pkgconf" => :build
   depends_on arch: :arm64
@@ -165,7 +164,7 @@ class YoutubeTranscriber < Formula
     assert_predicate bin/"yt-dlp", :executable?
     assert_predicate bin/"yt-transcribe", :executable?
     assert_match "2026.07.04", shell_output("#{bin}/yt-dlp --version")
-    assert_match "yt-transcribe 1.0.1", shell_output("#{bin}/yt-transcribe --version")
+    assert_match "yt-transcribe 1.0.2", shell_output("#{bin}/yt-transcribe --version")
 
     help = shell_output("#{bin}/yt-transcribe --help")
     assert_match "audio", help
