@@ -1,18 +1,38 @@
-# Jn-root Tap
+# jn-root Homebrew Tap
 
-## How do I install these formulae?
+This repository contains Homebrew formulae for public command-line tools created by Justin Nguyen.
 
-`brew install jn-root/tap/<formula>`
+## Install YouTube Audio and Text Transcriber
 
-Or `brew tap jn-root/tap` and then `brew install <formula>`.
-
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-tap "jn-root/tap"
-brew "<formula>"
+```bash
+brew install jn-root/tap/youtube-transcriber
 ```
 
-## Documentation
+The current formula supports Apple Silicon Macs running macOS 14 Sonoma or newer.
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+Run:
+
+```bash
+yt-transcribe "https://www.youtube.com/watch?v=VIDEO_ID"
+```
+
+Project documentation is available in the [YouTube Transcriber repository](https://github.com/jn-root/youtube-transcriber).
+
+## Upgrade
+
+```bash
+brew update
+brew upgrade youtube-transcriber
+```
+
+## Uninstall
+
+```bash
+brew uninstall youtube-transcriber
+```
+
+## Available formulae
+
+* `youtube-transcriber`
+
+Additional public tools may be added under `Formula/` in the future.
