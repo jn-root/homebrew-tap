@@ -6,6 +6,7 @@ class YoutubeTranscriber < Formula
   url "https://github.com/jn-root/youtube-transcriber/archive/refs/tags/v1.0.1.tar.gz"
   sha256 "7950712439432449fc31d122206eb026506e17af12e44846796c10848d2090fd"
   license "MIT"
+  revision 1
 
   depends_on "pkgconf" => :build
   depends_on arch: :arm64
@@ -157,10 +158,13 @@ class YoutubeTranscriber < Formula
       end
     end
     venv.pip_install_and_link(buildpath, build_isolation: false)
+    bin.install_symlink libexec/"bin/yt-dlp"
   end
 
   test do
+    assert_predicate bin/"yt-dlp", :executable?
     assert_predicate bin/"yt-transcribe", :executable?
+    assert_match "2026.07.04", shell_output("#{bin}/yt-dlp --version")
     assert_match "yt-transcribe 1.0.1", shell_output("#{bin}/yt-transcribe --version")
 
     help = shell_output("#{bin}/yt-transcribe --help")
