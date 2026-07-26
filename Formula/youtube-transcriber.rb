@@ -14,6 +14,10 @@ class YoutubeTranscriber < Formula
   depends_on macos: :sonoma
   depends_on "python@3.11"
 
+  on_linux do
+    depends_on :macos
+  end
+
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/5d/40/e1e72872c6354b306daef1703549e8e83b4d43cfea356311bf722a043752/setuptools-83.0.0-py3-none-any.whl"
     sha256 "29b23c360f22f414dc7336bb39178cc7bcbf6021ed2733cde173f09dba19abb3"
